@@ -38,7 +38,6 @@
          void addLinear_Block( float _x, float _y, float _z, float _feed );
          void addArc_Block( int type, float _x, float _y, float _feed, float centerX, float centerY );
          void addDwell_Block( int delayMS );
-         void addDelay( int delayMS );
 
          void setPosition( float t_x, float t_y, float t_z );
 
@@ -149,6 +148,8 @@
          void constAccelTrajectory();
 
          int addBaseBlock( const float & _x, const float & _y, const float & _z );
+         void addDelay( int delayMS );
+         
          int AddNewBlockIndex();
          void removeOldBlock();
 
