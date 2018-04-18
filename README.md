@@ -22,7 +22,7 @@ motion.startMoving();
 ```
 
 ## Adding Moves
-* Always check _motion.bufferVacancy()_ before adding a motion block to prevent overwriting an active move.  It will return TRUE if there is room.
+* Always check `motion.bufferVacancy()` before adding a motion block to prevent overwriting an active move.  It will return TRUE if there is room.
 * All moves positions should be in absolute position
 * Any linear distance units can be used as long it is the same for acceleration, velocity and position
 * ( mm/s^2, mm/s, mm   or  in/s^2, in/s, in )
@@ -48,15 +48,15 @@ motion.getTargetLocation( x, y, z );   // new position is passed by reference th
 ## Pausing/Stopping Motion
 * Motion can be paused by stopping the addition of moves to the movement engine.  Once all queued moves have been executed, the movement will smoothly stop at the end of the last move.
 * Motion can be resumed by submitting more moves to the motion engine.
-* Motion can be forcefully stopped using the _motion.abortMotion()_ function.  This will delete all moves and may produce unpredictable results if executed while moving.
-* It is possbile to check if all moves have been completed using the _motion.blockQueueComplete()_ function.  This will return true if there are no moves queud up or if all queud moves have been completed.
+* Motion can be forcefully stopped using the `motion.abortMotion()` function.  This will delete all moves and may produce unpredictable results if executed while moving.
+* It is possbile to check if all moves have been completed using the `motion.blockQueueComplete()` function.  This will return true if there are no moves queud up or if all queud moves have been completed.
 
 ## List of public functions
 ```
 bool bufferVacancy();
 ```
 >* This will return TRUE if there is room in the buffer for another move
-
+#
 
 ```
 void addRapid_Block(  float _x, float _y, float _z );
