@@ -56,19 +56,19 @@ motion.getTargetLocation( x, y, z );   // new position is passed by reference th
 bool bufferVacancy();
 ```
 >* This will return TRUE if there is room in the buffer for another move
-####
+##
 
 ```
 void addRapid_Block(  float _x, float _y, float _z );
 ```
 >* Add a linear move at max velocity to this point
-####
+##
 
 ```
 void addLinear_Block( float _x, float _y, float _z, float _feed );
 ```
 >* Add a linear move at the specified velocity  to this point
-####
+##
 
 ```
 void addArc_Block( int type, float _x, float _y, float _feed, float centerX, float centerY );
@@ -79,21 +79,21 @@ void addArc_Block( int type, float _x, float _y, float _feed, float centerX, flo
 >* If the end point matches the start point, a full circle will be produced
 >* If the start-to-center radius and end-to-center radius are excessively different, the motion engine will hang (todo: handle this more gracefully )
 >* This is slightly less efficient than a poly line arc when executing _getTargetLocation( ... )_ during motion control
-####
+##
 
 ```
 void addDwell_Block( int delayMS );
 ```
 >* This adds a motion block of zero length to the queue and then appends a dwell to the end of it
 >* If there is no room in the block buffer, the dwell will be appended to the end of the last move.  This makes is safe to add a dwell at any time, even withour checking for space in the buffer.
-####
+##
 
 ```
 void setPosition( float t_x, float t_y, float t_z );
 ```
 >* This sets the current position (start position) of the machine before `startMoving()` is executed
 >* Don't call this while moving or bad things will happen
-####
+##
 
 ```
 void setLookAheadTime(int timeMS );
@@ -101,7 +101,7 @@ void setLookAheadTime(int timeMS );
 >* Use this to set the minimum amount of movement time in the buffer.
 >* Default is 250ms
 >* This can be used to save processing time by only queuing up enough blocks to insure the motion is not being throttled
-####
+##
 
 ```
 void setJunctionVelRad( float t_r );
@@ -109,20 +109,20 @@ void setJunctionVelRad( float t_r );
 >* This is used to adjust the speed at which the motion engine will cross line junctions.
 >* Default is 0.050mm
 >* If the motion engine is too cautious at corners, increase.  If it is too fast, decrease.
-####
+##
 
 ```
 void startMoving();
 ```
 >* Execute this to start motion
 >* This must be run before adding motion blocks to the buffer
-####
+##
 
 ```
 void abortMotion();
 ```
 >* Stops motion abruptly, requires `startMoving()` to continue again
-####
+##
 
 ```
 float setMotionRateOverride(  float scale );
@@ -130,31 +130,31 @@ float setMotionRateOverride(  float scale );
 >* Scale feed rate up or down, 1.0 is no speed change
 >* Only effects moves added _after_ a change
 >* Will not exceed max feed rate set on object initialization
-####
+##
 
 ```
 void getTargetLocation( float & x, float & y, float & z );
 ```
 >* Used to get the current cartesin position during motion control
-####
+##
 
 ```
 float getSpeed();
 ```
 >* Returns the speed of the tool in the direction of motion
-####
+##
 
 ```
 int  getBlockCount();
 ```
 >* Returns the number of motion block currently in the queue
 >* This should _not_ be used to determine if all moves are complete ( see: `blockQueueComplete()` )
-####
+##
 
 ```
 bool blockQueueComplete();
 ```
 >* Returns TRUE once all moves in the buffer are complete
-####
+##
 
 
