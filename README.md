@@ -55,27 +55,27 @@ motion.getTargetLocation( x, y, z );   // new position is passed by reference th
 ```
 bool bufferVacancy();
 ```
-This will return TRUE if there is room in the buffer for another move
+* This will return TRUE if there is room in the buffer for another move
 
 ```
 void addRapid_Block(  float _x, float _y, float _z );
 ```
-Add a linear move at max velocity to this point
+* Add a linear move at max velocity to this point
 
 ```
 void addLinear_Block( float _x, float _y, float _z, float _feed );
 ```
-Add a linear move at the specified velocity  to this point
+* Add a linear move at the specified velocity  to this point
 
 ```
 void addArc_Block( int type, float _x, float _y, float _feed, float centerX, float centerY );
 ```
-Add an arc move in the XY plane at the current z position.
-Pass arc direction, end point, feed rate and center point
-Arc direction: 2 = CW and 3 = CCW ( follows standard CNC G2 and G3 )
-If the end point matches the start point, a full circle will be produced
-If the start-to-center radius and end-to-center radius are excessively different, the motion engine will hang (todo: handle this more gracefully )
-This is slightly less efficient than a poly line arc when executing _getTargetLocation( ... )_ during motion control
+* Add an arc move in the XY plane at the current z position.
+* Pass arc direction, end point, feed rate and center point
+* Arc direction: 2 = CW and 3 = CCW ( follows standard CNC G2 and G3 )
+* If the end point matches the start point, a full circle will be produced
+* If the start-to-center radius and end-to-center radius are excessively different, the motion engine will hang (todo: handle this more gracefully )
+* This is slightly less efficient than a poly line arc when executing _getTargetLocation( ... )_ during motion control
 
 ```
 void addDwell_Block( int delayMS );
