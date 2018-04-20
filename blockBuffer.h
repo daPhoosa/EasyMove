@@ -242,7 +242,8 @@ bool EasyMove::blockQueueComplete()
    if( blockCount == 0 ) return true;
 
    if(blockCount  == 1 &&     // on last block
-      segmentIndex > 2 )      // movement & dwell complete
+      segmentIndex > 2 &&     // movement complete
+      segmentTime == 9999UL)  // dwell complete
    {
       return true;
    }

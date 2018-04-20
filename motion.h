@@ -103,7 +103,7 @@ void EasyMove::advancePostion() // this moves forward along the acc/dec trajecto
                }
                else  // WAIT for next block
                {
-                  segmentTime = 10000UL;    // force 10ms of dwell before checking again
+                  segmentTime = 9999UL;    // force 10ms of dwell before checking again
                }
                break;
          }
